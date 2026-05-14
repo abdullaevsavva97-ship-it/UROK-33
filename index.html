@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+
+<html lang="ru" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тест по арабскому языку — Национальности и местоимения</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0e17;
+    --card: #1a1929;
+    --card2: #22213a;
+    --accent: #ff6b6b;
+    --gold: #ffd166;
+    --green: #06d6a0;
+    --blue: #4ecdc4;
+    --purple: #a78bfa;
+    --text: #fffffe;
+    --muted: #a7a9be;
+    --radius: 16px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    min-height: 100vh;
+    padding: 0 0 60px;
+  }
+
+/* HEADER */
+header {
+background: linear-gradient(135deg, #1a1929 0%, #2d1b69 100%);
+padding: 40px 24px 30px;
+text-align: center;
+border-bottom: 2px solid var(–purple);
+position: relative;
+overflow: hidden;
+}
+header::before {
+content: ‘’;
+position: absolute;
+top: -60px; left: -60px;
+width: 200px; height: 200px;
+background: radial-gradient(circle, rgba(167,139,250,0.18) 0%, transparent 70%);
+border-radius: 50%;
+}
+header::after {
+content: ‘’;
+position: absolute;
+bottom: -40px; right: -40px;
+width: 160px; height: 160px;
+background: radial-gradient(circle, rgba(255,107,107,0.14) 0%, transparent 70%);
+border-radius: 50%;
+}
+.arabic-title {
+font-size: 2.8rem;
+direction: rtl;
+color: var(–gold);
+font-weight: 900;
+letter-spacing: 2px;
+margin-bottom: 6px;
+font-family: ‘Playfair Display’, serif;
+}
+.subtitle {
+font-size: 1.1rem;
+color: var(–purple);
+font-weight: 600;
+margin-bottom: 4px;
+}
+.topic-pills {
+display: flex; flex-wrap: wrap; gap: 8px;
+justify-content: center; margin-top: 14px;
+}
+.pill {
+background: rgba(167,139,250,0.13);
+border: 1px solid var(–purple);
+color: var(–purple);
+border-radius: 50px;
+padding: 4px 14px;
+font-size: 0.82rem;
+font-weight: 700;
+}
+
+/* PROGRESS */
+.progress-wrap {
+max-width: 700px;
+margin: 28px auto 0;
+padding: 0 20px;
+}
+.progress-bar-bg {
+background: var(–card2);
+border-radius: 50px;
+height: 10px;
+overflow: hidden;
+}
+.progress-bar-fill {
+background: linear-gradient(90deg, var(–purple), var(–blue));
+height: 100%;
+width: 0%;
+border-radius: 50px;
+transition: width 0.5s cubic-bezier(.4,0,.2,1);
+}
+.progress-label {
+text-align: right;
+color: var(–muted);
+font-size: 0.85rem;
+margin-top: 6px;
+}
+
+/* SECTIONS */
+.section-label {
+max-width: 700px;
+margin: 36px auto 0;
+padding: 0 20px;
+}
+.section-badge {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+background: linear-gradient(90deg, var(–purple), var(–blue));
+color: #fff;
+font-weight: 800;
+font-size: 0.9rem;
+border-radius: 50px;
+padding: 6px 18px;
+margin-bottom: 4px;
+letter-spacing: 0.5px;
+}
+.section-desc {
+color: var(–muted);
+font-size: 0.88rem;
+margin-bottom: 2px;
+padding-left: 4px;
+}
+
+/* QUESTION CARDS */
+.questions-wrap {
+max-width: 700px;
+margin: 14px auto 0;
+padding: 0 20px;
+display: flex;
+flex-direction: column;
+gap: 18px;
+}
+.q-card {
+background: var(–card);
+border-radius: var(–radius);
+border: 1.5px solid rgba(167,139,250,0.13);
+padding: 22px 22px 18px;
+transition: border-color 0.3s;
+}
+.q-card.answered-correct {
+border-color: var(–green) !important;
+background: rgba(6,214,160,0.05);
+}
+.q-card.answered-wrong {
+border-color: var(–accent) !important;
+background: rgba(255,107,107,0.05);
+}
+.q-number {
+font-size: 0.75rem;
+color: var(–purple);
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 1px;
+margin-bottom: 8px;
+}
+.q-text {
+font-size: 1.08rem;
+font-weight: 700;
+color: var(–text);
+margin-bottom: 14px;
+line-height: 1.5;
+}
+.q-text .arabic {
+font-size: 1.3rem;
+color: var(–gold);
+direction: rtl;
+display: inline-block;
+}
+
+/* OPTIONS */
+.options {
+display: flex;
+flex-direction: column;
+gap: 9px;
+}
+.opt-btn {
+background: var(–card2);
+border: 1.5px solid rgba(167,139,250,0.18);
+color: var(–text);
+border-radius: 12px;
+padding: 11px 16px;
+font-size: 0.97rem;
+font-family: ‘Nunito’, sans-serif;
+font-weight: 600;
+cursor: pointer;
+text-align: left;
+transition: all 0.18s;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.opt-btn:hover:not(:disabled) {
+border-color: var(–purple);
+background: rgba(167,139,250,0.1);
+transform: translateX(4px);
+}
+.opt-btn.correct {
+background: rgba(6,214,160,0.15);
+border-color: var(–green);
+color: var(–green);
+}
+.opt-btn.wrong {
+background: rgba(255,107,107,0.13);
+border-color: var(–accent);
+color: var(–accent);
+}
+.opt-btn:disabled { cursor: default; }
+.opt-dot {
+width: 22px; height: 22px;
+border-radius: 50%;
+border: 2px solid currentColor;
+display: flex; align-items: center; justify-content: center;
+flex-shrink: 0;
+font-size: 0.75rem;
+font-weight: 900;
+}
+
+/* MATCH TYPE */
+.match-wrap {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 10px;
+}
+.match-col-label {
+font-size: 0.75rem;
+color: var(–muted);
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+margin-bottom: 6px;
+}
+.match-items { display: flex; flex-direction: column; gap: 7px; }
+.match-item {
+background: var(–card2);
+border: 1.5px solid rgba(167,139,250,0.18);
+border-radius: 10px;
+padding: 9px 12px;
+font-size: 0.95rem;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.18s;
+text-align: center;
+}
+.match-item.arabic-item { direction: rtl; font-size: 1.1rem; color: var(–gold); }
+.match-item:hover:not(.matched):not(.wrong-match) { border-color: var(–purple); background: rgba(167,139,250,0.12); }
+.match-item.selected { border-color: var(–blue); background: rgba(78,205,196,0.13); color: var(–blue); }
+.match-item.matched { border-color: var(–green); background: rgba(6,214,160,0.12); color: var(–green); cursor: default; }
+.match-item.wrong-match { border-color: var(–accent); background: rgba(255,107,107,0.12); animation: shake 0.3s; }
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+
+/* INPUT TYPE */
+.input-area {
+display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+}
+.q-input {
+background: var(–card2);
+border: 1.5px solid rgba(167,139,250,0.25);
+color: var(–text);
+border-radius: 10px;
+padding: 10px 14px;
+font-size: 1rem;
+font-family: ‘Nunito’, sans-serif;
+flex: 1;
+min-width: 160px;
+outline: none;
+transition: border-color 0.2s;
+}
+.q-input:focus { border-color: var(–purple); }
+.q-input.correct-input { border-color: var(–green); color: var(–green); }
+.q-input.wrong-input { border-color: var(–accent); color: var(–accent); }
+.check-btn {
+background: linear-gradient(135deg, var(–purple), var(–blue));
+color: #fff;
+border: none;
+border-radius: 10px;
+padding: 10px 20px;
+font-size: 0.95rem;
+font-family: ‘Nunito’, sans-serif;
+font-weight: 700;
+cursor: pointer;
+transition: opacity 0.2s;
+}
+.check-btn:hover { opacity: 0.85; }
+.check-btn:disabled { opacity: 0.5; cursor: default; }
+
+/* FEEDBACK */
+.feedback {
+margin-top: 10px;
+font-size: 0.9rem;
+font-weight: 700;
+border-radius: 8px;
+padding: 8px 12px;
+display: none;
+}
+.feedback.show { display: block; }
+.feedback.correct { background: rgba(6,214,160,0.12); color: var(–green); }
+.feedback.wrong { background: rgba(255,107,107,0.10); color: var(–accent); }
+
+/* SUBMIT */
+.submit-wrap {
+max-width: 700px;
+margin: 36px auto 0;
+padding: 0 20px;
+text-align: center;
+}
+.submit-btn {
+background: linear-gradient(135deg, var(–accent), var(–gold));
+color: #0f0e17;
+border: none;
+border-radius: 50px;
+padding: 16px 48px;
+font-size: 1.15rem;
+font-family: ‘Nunito’, sans-serif;
+font-weight: 800;
+cursor: pointer;
+transition: transform 0.2s, opacity 0.2s;
+letter-spacing: 0.5px;
+box-shadow: 0 8px 32px rgba(255,107,107,0.25);
+}
+.submit-btn:hover { transform: translateY(-2px); opacity: 0.92; }
+.submit-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
+.hint { color: var(–muted); font-size: 0.83rem; margin-top: 10px; }
+
+/* RESULT */
+#result-screen {
+display: none;
+max-width: 700px;
+margin: 40px auto;
+padding: 0 20px;
+}
+.result-card {
+background: var(–card);
+border-radius: 24px;
+border: 2px solid var(–gold);
+padding: 40px 30px;
+text-align: center;
+}
+.result-emoji { font-size: 4rem; margin-bottom: 12px; }
+.result-grade {
+font-size: 4rem;
+font-weight: 900;
+font-family: ‘Playfair Display’, serif;
+background: linear-gradient(135deg, var(–gold), var(–accent));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+margin-bottom: 6px;
+}
+.result-score { font-size: 1.2rem; color: var(–muted); margin-bottom: 18px; }
+.result-msg { font-size: 1.05rem; color: var(–text); line-height: 1.6; margin-bottom: 26px; }
+.result-details {
+background: var(–card2);
+border-radius: 14px;
+padding: 18px;
+margin-bottom: 24px;
+}
+.result-row {
+display: flex; justify-content: space-between; align-items: center;
+padding: 6px 0;
+border-bottom: 1px solid rgba(255,255,255,0.05);
+font-size: 0.92rem;
+}
+.result-row:last-child { border-bottom: none; }
+.result-row .r-label { color: var(–muted); }
+.result-row .r-val { font-weight: 700; }
+.restart-btn {
+background: linear-gradient(135deg, var(–purple), var(–blue));
+color: #fff;
+border: none;
+border-radius: 50px;
+padding: 14px 40px;
+font-size: 1rem;
+font-family: ‘Nunito’, sans-serif;
+font-weight: 800;
+cursor: pointer;
+transition: transform 0.2s;
+}
+.restart-btn:hover { transform: translateY(-2px); }
+
+/* MATCH RESULT DISPLAY */
+.match-pair-display {
+display: flex; align-items: center; gap: 8px;
+background: var(–card2);
+border-radius: 8px;
+padding: 8px 12px;
+margin-bottom: 6px;
+font-size: 0.9rem;
+}
+.match-pair-display .arabic { direction: rtl; color: var(–gold); font-size: 1rem; }
+.match-pair-display .arrow { color: var(–muted); }
+.match-pair-display.ok { border-left: 3px solid var(–green); }
+.match-pair-display.fail { border-left: 3px solid var(–accent); }
+
+@media(max-width:520px) {
+.arabic-title { font-size: 2rem; }
+.match-wrap { grid-template-columns: 1fr; }
+}
+</style>
+
+</head>
+<body>
+
+<header>
+  <div class="arabic-title">اِخْتِبَارٌ</div>
+  <div class="subtitle">Тест по арабскому языку</div>
+  <div style="color:var(--muted);font-size:0.85rem;margin-top:2px;">Урок 2 — Национальности, местоимения, ياء النسبة</div>
+  <div class="topic-pills">
+    <span class="pill">ـيٌّ / ـيَّةٌ</span>
+    <span class="pill">أنتَ / أنتِ</span>
+    <span class="pill">Национальности</span>
+    <span class="pill">هَذَا / هَذِهِ</span>
+    <span class="pill">مَنْ / مِنْ أَيْنَ</span>
+  </div>
+</header>
+
+<div class="progress-wrap">
+  <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-bar"></div></div>
+  <div class="progress-label" id="prog-label">0 / 20 выполнено</div>
+</div>
+
+<div id="quiz-content">
+
+<!-- ===== SECTION 1 ===== -->
+
+<div class="section-label">
+  <div class="section-badge">📝 Часть 1 — Перевод</div>
+  <div class="section-desc">Выбери правильный перевод арабского слова или фразы</div>
+</div>
+<div class="questions-wrap" id="sec1"></div>
+
+<!-- ===== SECTION 2 ===== -->
+
+<div class="section-label" style="margin-top:32px;">
+  <div class="section-badge">🔗 Часть 2 — Сопоставление</div>
+  <div class="section-desc">Соедини арабское слово с его русским переводом. Нажми сначала на арабское, потом на русское</div>
+</div>
+<div class="questions-wrap" id="sec2"></div>
+
+<!-- ===== SECTION 3 ===== -->
+
+<div class="section-label" style="margin-top:32px;">
+  <div class="section-badge">✏️ Часть 3 — Заполни пропуск</div>
+  <div class="section-desc">Напиши арабское слово или форму по-арабски (без огласовок допустимо)</div>
+</div>
+<div class="questions-wrap" id="sec3"></div>
+
+<!-- ===== SECTION 4 ===== -->
+
+<div class="section-label" style="margin-top:32px;">
+  <div class="section-badge">🧠 Часть 4 — Грамматика</div>
+  <div class="section-desc">Выбери правильный ответ по правилам арабской грамматики</div>
+</div>
+<div class="questions-wrap" id="sec4"></div>
+
+<div class="submit-wrap">
+  <button class="submit-btn" id="submit-btn" onclick="submitQuiz()">Завершить тест и узнать оценку</button>
+  <div class="hint">Ответь на все вопросы, чтобы получить результат</div>
+</div>
+
+</div><!-- end quiz-content -->
+
+<!-- ===== RESULT ===== -->
+
+<div id="result-screen">
+  <div class="result-card">
+    <div class="result-emoji" id="res-emoji">🎉</div>
+    <div class="result-grade" id="res-grade"></div>
+    <div class="result-score" id="res-score"></div>
+    <div class="result-msg" id="res-msg"></div>
+    <div class="result-details" id="res-details"></div>
+    <button class="restart-btn" onclick="restartQuiz()">🔄 Пройти тест снова</button>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// DATA
+// ============================================================
+
+const mcqData_sec1 = [
+  {
+    id: 'q1_1',
+    q: 'Что означает слово <span class="arabic">مِصْرِيٌّ</span>?',
+    opts: ['египтянка', 'египтянин / египетский', 'египтяне', 'Египет'],
+    ans: 1
+  },
+  {
+    id: 'q1_2',
+    q: 'Как сказать «турчанка» по-арабски?',
+    opts: ['تُرْكِيٌّ', 'تُرْكِيَّةٌ', 'تُرْكِيَا', 'تُرْكُ'],
+    ans: 1
+  },
+  {
+    id: 'q1_3',
+    q: 'Что означает фраза <span class="arabic">أَنْتِ كَنَدِيَّةٌ</span>?',
+    opts: ['Ты (м.р.) канадец', 'Ты (ж.р.) канадка', 'Я канадка', 'Она канадка'],
+    ans: 1
+  },
+  {
+    id: 'q1_4',
+    q: 'Как спросить «Откуда ты?» по-арабски?',
+    opts: ['مَنْ أَنْتَ؟', 'مِنْ أَيْنَ أَنْتَ؟', 'مَا اسْمُكَ؟', 'هَلْ أَنْتَ عَرَبِيٌّ؟'],
+    ans: 1
+  },
+  {
+    id: 'q1_5',
+    q: 'Что означает <span class="arabic">هَذَا</span>?',
+    opts: ['это (для ж.р.)', 'это (для м.р.)', 'тот / та', 'эти'],
+    ans: 1
+  }
+];
+
+const mcqData_sec4 = [
+  {
+    id: 'q4_1',
+    q: 'Ученица спрашивает одноклассника. Как правильно сказать ему «Ты иракский»?',
+    opts: ['أَنْتِ عِرَاقِيَّةٌ', 'أَنْتَ عِرَاقِيٌّ', 'أَنَا عِرَاقِيٌّ', 'هُوَ عِرَاقِيٌّ'],
+    ans: 1
+  },
+  {
+    id: 'q4_2',
+    q: 'Как образуется женский род от слова <span class="arabic">سُودَانِيٌّ</span>?',
+    opts: ['سُودَانِيُون', 'سُودَانِيَّةٌ', 'سُودَانِيَة', 'السُّودَانُ'],
+    ans: 1
+  },
+  {
+    id: 'q4_3',
+    q: 'Страна называется <span class="arabic">اَلْيُونَانُ</span>. Как называется гражданин этой страны (м.р.)?',
+    opts: ['اَلْيُونَانِيٌّ', 'يُونَانِيٌّ', 'يُونَانِيَّةٌ', 'يُونَانِيُون'],
+    ans: 1
+  },
+  {
+    id: 'q4_4',
+    q: 'Верно ли использован суффикс в предложении: «أَنَا أُرْدُنِيٌّ» (мужчина говорит)?',
+    opts: ['Нет, нужно أُرْدُنِيَّةٌ', 'Да, всё верно', 'Нет, нужно أُرْدُنِيُون', 'Нет, нужно اَلأُرْدُنِيٌّ'],
+    ans: 1
+  },
+  {
+    id: 'q4_5',
+    q: 'Как правильно ответить на вопрос «هَلْ أَنْتِ مَغْرِبِيَّةٌ؟» если ответ положительный?',
+    opts: ['نَعَمْ، أَنَا مَغْرِبِيٌّ', 'نَعَمْ، أَنَا مَغْرِبِيَّةٌ', 'لَا، أَنَا مَغْرِبِيَّةٌ', 'نَعَمْ، أَنْتِ مَغْرِبِيَّةٌ'],
+    ans: 1
+  }
+];
+
+const matchData = {
+  id: 'q2_match1',
+  pairs: [
+    { ar: 'مِصْرِيٌّ', ru: 'египтянин' },
+    { ar: 'كَنَدِيَّةٌ', ru: 'канадка' },
+    { ar: 'أُرْدُنِيٌّ', ru: 'иорданец' },
+    { ar: 'سُودَانِيَّةٌ', ru: 'суданка' },
+    { ar: 'تُرْكِيٌّ', ru: 'турок' },
+    { ar: 'يُونَانِيَّةٌ', ru: 'гречанка' },
+  ]
+};
+
+const matchData2 = {
+  id: 'q2_match2',
+  pairs: [
+    { ar: 'هَذَا', ru: 'это (м.р.)' },
+    { ar: 'هَذِهِ', ru: 'это (ж.р.)' },
+    { ar: 'أَنْتَ', ru: 'ты (м.р.)' },
+    { ar: 'أَنْتِ', ru: 'ты (ж.р.)' },
+    { ar: 'مِنْ أَيْنَ', ru: 'откуда' },
+    { ar: 'مَنْ', ru: 'кто' },
+  ]
+};
+
+const fillData = [
+  {
+    id: 'q3_1',
+    q: 'Напиши по-арабски слово «египтянка»',
+    hint: 'Основа: مِصْر + суффикс ж.р.',
+    accepted: ['مصرية', 'مِصْرِيَّةٌ', 'مصريّة', 'مصريه']
+  },
+  {
+    id: 'q3_2',
+    q: 'Напиши по-арабски «Ты (к женщине) суданка»',
+    hint: 'أَنْتِ + суффикс ж.р. от السُّودَان',
+    accepted: ['انت سودانية', 'أنتِ سُودَانِيَّةٌ', 'أنت سودانية', 'انتِ سودانيّة']
+  },
+  {
+    id: 'q3_3',
+    q: 'Напиши по-арабски слово «американец» (м.р.)',
+    hint: 'أَمْرِيكَا → ...ـيٌّ',
+    accepted: ['امريكي', 'أمريكيٌّ', 'أمريكي', 'امريكيّ']
+  },
+  {
+    id: 'q3_4',
+    q: 'Напиши вопрос «Откуда ты?» по-арабски',
+    hint: 'мин + айна + анта',
+    accepted: ['من اين انت', 'مِنْ أَيْنَ أَنْتَ', 'من أين أنت', 'من اين أنت']
+  },
+  {
+    id: 'q3_5',
+    q: 'Как по-арабски сказать «турчанка»?',
+    hint: 'تُرْكِيٌّ → ж.р.',
+    accepted: ['تركية', 'تُرْكِيَّةٌ', 'تركيّة', 'تركيه']
+  }
+];
+
+// ============================================================
+// STATE
+// ============================================================
+let mcqAnswers = {}; // id -> chosen index
+let matchState1 = { selected: null, matched: {}, wrongs: new Set() };
+let matchState2 = { selected: null, matched: {}, wrongs: new Set() };
+let fillAnswers = {}; // id -> { value, checked, correct }
+let totalQ = 0;
+let answeredQ = 0;
+
+// ============================================================
+// RENDER MCQ
+// ============================================================
+function renderMCQ(container, questions) {
+  questions.forEach((q, idx) => {
+    totalQ++;
+    const card = document.createElement('div');
+    card.className = 'q-card';
+    card.id = 'card_' + q.id;
+
+    const num = document.createElement('div');
+    num.className = 'q-number';
+    num.textContent = 'Вопрос ' + (idx + 1);
+    card.appendChild(num);
+
+    const txt = document.createElement('div');
+    txt.className = 'q-text';
+    txt.innerHTML = q.q;
+    card.appendChild(txt);
+
+    const opts = document.createElement('div');
+    opts.className = 'options';
+    q.opts.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'opt-btn';
+      btn.id = 'opt_' + q.id + '_' + i;
+      const letters = ['А','Б','В','Г'];
+      btn.innerHTML = `<span class="opt-dot">${letters[i]}</span><span>${opt}</span>`;
+      btn.onclick = () => selectMCQ(q, i);
+      opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+
+    const fb = document.createElement('div');
+    fb.className = 'feedback';
+    fb.id = 'fb_' + q.id;
+    card.appendChild(fb);
+
+    container.appendChild(card);
+  });
+}
+
+function selectMCQ(q, chosen) {
+  if (mcqAnswers[q.id] !== undefined) return;
+  const wasNew = mcqAnswers[q.id] === undefined;
+  mcqAnswers[q.id] = chosen;
+  const correct = chosen === q.ans;
+
+  q.opts.forEach((_, i) => {
+    const btn = document.getElementById('opt_' + q.id + '_' + i);
+    btn.disabled = true;
+    if (i === q.ans) btn.classList.add('correct');
+    else if (i === chosen && !correct) btn.classList.add('wrong');
+  });
+
+  const card = document.getElementById('card_' + q.id);
+  card.classList.add(correct ? 'answered-correct' : 'answered-wrong');
+
+  const fb = document.getElementById('fb_' + q.id);
+  fb.className = 'feedback show ' + (correct ? 'correct' : 'wrong');
+  fb.textContent = correct ? '✓ Правильно!' : '✗ Неверно. Правильный ответ: ' + q.opts[q.ans];
+
+  if (wasNew) { answeredQ++; updateProgress(); }
+}
+
+// ============================================================
+// RENDER MATCH
+// ============================================================
+function renderMatch(container, data, state, label) {
+  totalQ++;
+  const card = document.createElement('div');
+  card.className = 'q-card';
+  card.id = 'card_' + data.id;
+
+  const num = document.createElement('div');
+  num.className = 'q-number';
+  num.textContent = label;
+  card.appendChild(num);
+
+  const txt = document.createElement('div');
+  txt.className = 'q-text';
+  txt.textContent = 'Соедини арабские слова с их переводами:';
+  card.appendChild(txt);
+
+  const wrap = document.createElement('div');
+  wrap.className = 'match-wrap';
+
+  const leftCol = document.createElement('div');
+  const leftLabel = document.createElement('div');
+  leftLabel.className = 'match-col-label';
+  leftLabel.textContent = 'По-арабски';
+  leftCol.appendChild(leftLabel);
+  const leftItems = document.createElement('div');
+  leftItems.className = 'match-items';
+
+  const rightCol = document.createElement('div');
+  const rightLabel = document.createElement('div');
+  rightLabel.className = 'match-col-label';
+  rightLabel.textContent = 'По-русски';
+  rightCol.appendChild(rightLabel);
+  const rightItems = document.createElement('div');
+  rightItems.className = 'match-items';
+
+  // Shuffle right side
+  const shuffledRu = [...data.pairs].sort(() => Math.random() - 0.5);
+
+  data.pairs.forEach(pair => {
+    const arItem = document.createElement('div');
+    arItem.className = 'match-item arabic-item';
+    arItem.textContent = pair.ar;
+    arItem.dataset.key = pair.ar;
+    arItem.dataset.type = 'ar';
+    arItem.dataset.matchid = data.id;
+    arItem.onclick = () => handleMatch(arItem, state, data, container);
+    leftItems.appendChild(arItem);
+  });
+
+  shuffledRu.forEach(pair => {
+    const ruItem = document.createElement('div');
+    ruItem.className = 'match-item';
+    ruItem.textContent = pair.ru;
+    ruItem.dataset.key = pair.ar;
+    ruItem.dataset.type = 'ru';
+    ruItem.dataset.matchid = data.id;
+    ruItem.onclick = () => handleMatch(ruItem, state, data, container);
+    rightItems.appendChild(ruItem);
+  });
+
+  leftCol.appendChild(leftItems);
+  rightCol.appendChild(rightItems);
+  wrap.appendChild(leftCol);
+  wrap.appendChild(rightCol);
+  card.appendChild(wrap);
+
+  const fb = document.createElement('div');
+  fb.className = 'feedback';
+  fb.id = 'fb_' + data.id;
+  card.appendChild(fb);
+
+  container.appendChild(card);
+}
+
+function handleMatch(item, state, data, container) {
+  const card = document.getElementById('card_' + data.id);
+  if (item.classList.contains('matched') || item.classList.contains('wrong-match')) return;
+
+  if (!state.selected) {
+    // Must select arabic first
+    if (item.dataset.type !== 'ar') return;
+    state.selected = item;
+    item.classList.add('selected');
+  } else {
+    if (item.dataset.type === 'ar') {
+      state.selected.classList.remove('selected');
+      state.selected = item;
+      item.classList.add('selected');
+      return;
+    }
+    // Try to match
+    const arKey = state.selected.dataset.key;
+    const ruKey = item.dataset.key;
+
+    if (arKey === ruKey) {
+      state.selected.classList.remove('selected');
+      state.selected.classList.add('matched');
+      item.classList.add('matched');
+      state.matched[arKey] = true;
+      state.selected = null;
+
+      if (Object.keys(state.matched).length === data.pairs.length) {
+        card.classList.add('answered-correct');
+        const fb = document.getElementById('fb_' + data.id);
+        fb.className = 'feedback show correct';
+        fb.textContent = '✓ Отлично! Все пары найдены правильно!';
+        answeredQ++;
+        updateProgress();
+      }
+    } else {
+      state.selected.classList.remove('selected');
+      const prevSelected = state.selected;
+      state.selected = null;
+      prevSelected.classList.add('wrong-match');
+      item.classList.add('wrong-match');
+      setTimeout(() => {
+        prevSelected.classList.remove('wrong-match');
+        item.classList.remove('wrong-match');
+      }, 600);
+    }
+  }
+}
+
+// ============================================================
+// RENDER FILL
+// ============================================================
+function renderFill(container, questions) {
+  questions.forEach((q, idx) => {
+    totalQ++;
+    const card = document.createElement('div');
+    card.className = 'q-card';
+    card.id = 'card_' + q.id;
+
+    const num = document.createElement('div');
+    num.className = 'q-number';
+    num.textContent = 'Вопрос ' + (idx + 1);
+    card.appendChild(num);
+
+    const txt = document.createElement('div');
+    txt.className = 'q-text';
+    txt.textContent = q.q;
+    card.appendChild(txt);
+
+    const hint = document.createElement('div');
+    hint.style.cssText = 'color:var(--muted);font-size:0.82rem;margin-bottom:10px;';
+    hint.textContent = '💡 Подсказка: ' + q.hint;
+    card.appendChild(hint);
+
+    const inputArea = document.createElement('div');
+    inputArea.className = 'input-area';
+
+    const inp = document.createElement('input');
+    inp.type = 'text';
+    inp.className = 'q-input';
+    inp.id = 'inp_' + q.id;
+    inp.placeholder = 'Напиши по-арабски...';
+    inp.setAttribute('dir', 'rtl');
+
+    const btn = document.createElement('button');
+    btn.className = 'check-btn';
+    btn.textContent = 'Проверить';
+    btn.onclick = () => checkFill(q, inp, btn, card, fb);
+
+    inp.addEventListener('keydown', e => { if (e.key === 'Enter') btn.click(); });
+
+    inputArea.appendChild(inp);
+    inputArea.appendChild(btn);
+    card.appendChild(inputArea);
+
+    const fb = document.createElement('div');
+    fb.className = 'feedback';
+    fb.id = 'fb_' + q.id;
+    card.appendChild(fb);
+
+    container.appendChild(card);
+  });
+}
+
+function normalize(str) {
+  return str
+    .replace(/[\u064B-\u065F\u0670]/g, '') // diacritics
+    .replace(/أ|إ|آ/g, 'ا')
+    .replace(/ة/g, 'ه')
+    .replace(/ى/g, 'ي')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
+
+function checkFill(q, inp, btn, card, fb) {
+  if (fillAnswers[q.id]?.checked) return;
+  const val = inp.value.trim();
+  if (!val) return;
+
+  const userNorm = normalize(val);
+  const correct = q.accepted.some(a => normalize(a) === userNorm);
+
+  fillAnswers[q.id] = { value: val, checked: true, correct };
+  inp.disabled = true;
+  btn.disabled = true;
+
+  if (correct) {
+    inp.classList.add('correct-input');
+    card.classList.add('answered-correct');
+    fb.className = 'feedback show correct';
+    fb.textContent = '✓ Правильно!';
+  } else {
+    inp.classList.add('wrong-input');
+    card.classList.add('answered-wrong');
+    fb.className = 'feedback show wrong';
+    fb.textContent = '✗ Неверно. Один из правильных вариантов: ' + q.accepted[0];
+  }
+  answeredQ++;
+  updateProgress();
+}
+
+// ============================================================
+// PROGRESS
+// ============================================================
+function updateProgress() {
+  const pct = Math.round((answeredQ / totalQ) * 100);
+  document.getElementById('prog-bar').style.width = pct + '%';
+  document.getElementById('prog-label').textContent = answeredQ + ' / ' + totalQ + ' выполнено';
+}
+
+// ============================================================
+// SUBMIT
+// ============================================================
+function submitQuiz() {
+  // Count scores
+  let correct = 0;
+  let total = 0;
+
+  // MCQ sec1
+  mcqData_sec1.forEach(q => {
+    total++;
+    if (mcqAnswers[q.id] === q.ans) correct++;
+  });
+
+  // MCQ sec4
+  mcqData_sec4.forEach(q => {
+    total++;
+    if (mcqAnswers[q.id] === q.ans) correct++;
+  });
+
+  // Match1
+  total++;
+  if (Object.keys(matchState1.matched).length === matchData.pairs.length) correct++;
+
+  // Match2
+  total++;
+  if (Object.keys(matchState2.matched).length === matchData2.pairs.length) correct++;
+
+  // Fill
+  fillData.forEach(q => {
+    total++;
+    if (fillAnswers[q.id]?.correct) correct++;
+  });
+
+  const pct = Math.round((correct / total) * 100);
+  showResult(correct, total, pct);
+}
+
+function showResult(correct, total, pct) {
+  document.getElementById('quiz-content').style.display = 'none';
+  const rs = document.getElementById('result-screen');
+  rs.style.display = 'block';
+
+  let grade, emoji, msg;
+  if (pct >= 90) { grade = '5+'; emoji = '🏆'; msg = 'Великолепно! Ты отлично знаешь материал. Арабский язык покоряется тебе!'; }
+  else if (pct >= 80) { grade = '5'; emoji = '🌟'; msg = 'Отлично! Очень хороший результат. Продолжай в том же духе!'; }
+  else if (pct >= 70) { grade = '4'; emoji = '😊'; msg = 'Хорошо! Основной материал усвоен, но есть что повторить.'; }
+  else if (pct >= 60) { grade = '3'; emoji = '📚'; msg = 'Удовлетворительно. Нужно ещё поработать над темой.'; }
+  else { grade = '2'; emoji = '💪'; msg = 'Нужно повторить материал. Не сдавайся — у тебя всё получится!'; }
+
+  document.getElementById('res-emoji').textContent = emoji;
+  document.getElementById('res-grade').textContent = grade;
+  document.getElementById('res-score').textContent = `${correct} из ${total} (${pct}%)`;
+  document.getElementById('res-msg').textContent = msg;
+
+  const det = document.getElementById('res-details');
+  det.innerHTML = `
+    <div class="result-row"><span class="r-label">Правильных ответов</span><span class="r-val" style="color:var(--green)">${correct}</span></div>
+    <div class="result-row"><span class="r-label">Неверных ответов</span><span class="r-val" style="color:var(--accent)">${total - correct}</span></div>
+    <div class="result-row"><span class="r-label">Всего вопросов</span><span class="r-val">${total}</span></div>
+    <div class="result-row"><span class="r-label">Процент</span><span class="r-val" style="color:var(--gold)">${pct}%</span></div>
+  `;
+}
+
+function restartQuiz() {
+  location.reload();
+}
+
+// ============================================================
+// INIT
+// ============================================================
+function init() {
+  renderMCQ(document.getElementById('sec1'), mcqData_sec1);
+  renderMatch(document.getElementById('sec2'), matchData, matchState1, 'Сопоставление 1 — Национальности');
+  renderMatch(document.getElementById('sec2'), matchData2, matchState2, 'Сопоставление 2 — Местоимения и слова');
+  renderFill(document.getElementById('sec3'), fillData);
+  renderMCQ(document.getElementById('sec4'), mcqData_sec4);
+  updateProgress();
+}
+
+init();
+</script>
+
+</body>
+</html>
